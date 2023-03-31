@@ -1,5 +1,8 @@
 #Package imports
 from flask import Flask, render_template, request
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium import webdriver
@@ -68,9 +71,25 @@ def parse_text(text):
     tokenized_text = nlp(text)
 
     #Lemmatization.
+    for token in tokenized_text:
+        print(token.lemma)
 
     #Meaning recognition.
 
+#Set up the Flask forms.
+class URLForm(FlaskForm):
+    #These fields need 'name' attributes.
+    url_field = StringField('Your URL', validators=[DataRequired()])
+    submit_field = SubmitField('Submit')
+
+#Create the Flask app here.
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'Q;ny?Epj_20xI,4'
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    form = URLForm()
+    return render_template('index.html', form=form)
 
 #Tests for functions below.
 #print(get_tweet_text('https://twitter.com/AlfonsoThrillFr/status/1641084402598813698'))
