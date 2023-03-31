@@ -2,7 +2,7 @@
 ## Team Members: Howsikan Kugathasan, Vaishnavan Srikumaraguru, Frid Mughal
 
 ### Introduction
-This contains the codebase and documentation to our submission to the 2023 Legal Innovation Technology (LIT) competition. If you want to skip the technical stuff and see our code in action, go to this YouTube video here: LINK URL.
+This contains the codebase and documentation to our submission to the 2023 Legal Innovation Technology (LIT) competition. 
 
 ### An Overview
 Our code does three main things
